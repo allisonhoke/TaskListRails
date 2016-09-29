@@ -1,0 +1,13 @@
+<h3>Jared's Task List</h3>
+<ul>
+  <% @all_the_tasks.each do |task| %>
+    <li>
+    <%= link_to("#{task.title}", task_path(task[:id])) %>
+    <%= link_to "Edit", task_edit_path(task) %> 
+  </li>
+    <% end %>
+</ul>
+
+<p>
+  <%= link_to("Add a new task!", tasks_new_path) %>
+</p>
