@@ -2,13 +2,14 @@
 <ul>
   <% @all_the_tasks.each do |task| %>
     <li>
-    <%= link_to("#{task.title}", task_path(task[:id])) %>
-    <%= link_to "Edit", task_edit_path(task) %>
-    <%= button_to("Mark as complete", task_complete_path(task), method: :patch) %>
+    <p><%= link_to("#{task.title}", task_path(task[:id])) %></p>
+    <p>Complete? <%= completion_status(task) %></p>
+    <p><%= button_to "Edit", task_edit_path(task), method: :get %></p>
+    <p><%= button_to("Mark as complete", task_complete_path(task), method: :patch) %></p>
   </li>
     <% end %>
 </ul>
 
 <p>
-  <%= link_to("Add a new task!", tasks_new_path) %>
+  <%= button_to("Add a new task!", tasks_new_path, method: :get) %>
 </p>

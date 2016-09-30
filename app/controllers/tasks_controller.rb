@@ -38,7 +38,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.mark_complete
     @task.save
-    puts @task.id
 
     redirect_to task_path
   end

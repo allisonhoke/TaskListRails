@@ -1,21 +1,19 @@
 <%= form_for @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <p><%= f.label :title %>
+  <%= f.text_field :title %></p>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <p><%= f.label :description %>
+  <%= f.text_field :description %></p>
 
-  <%= f.label :completed_at %>
-  <%= f.date_field :completed_at %>
+  <p><%= f.label :completed_at %>
+  <%= f.date_field :completed_at %></p>
 
-  <%= f.submit "Submit" %>
+  <p><%= f.submit "Submit" %>
   <% end %>
 
 
-
 <p>
+  <%= button_to("Mark as complete", task_complete_path(@task), method: :patch) %>
   <%= button_to("Go back to the list", tasks_path, method: :get) %>
-</p>
-<p>
-  <%= link_to("Delete this task", task_delete_path, method: :delete, data: {confirm: "Are you sure you want to delete this task?"}) %>
+  <%= button_to("Delete this task", task_delete_path, method: :delete, data: {confirm: "Are you sure you want to delete this task?"}) %>
 </p>
