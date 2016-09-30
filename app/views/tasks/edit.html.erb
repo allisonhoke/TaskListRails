@@ -6,12 +6,16 @@
   <%= f.text_field :description %>
 
   <%= f.label :completed_at %>
-  <%= f.check_box :completed_at %>
+  <%= f.date_field :completed_at %>
 
   <%= f.submit "Submit" %>
   <% end %>
 
+
+
 <p>
-  <%= link_to("Go back to the list", tasks_path) %>
-  <%= link_to("Delete this task", task_delete_form_path) %>
+  <%= button_to("Go back to the list", tasks_path, method: :get) %>
+</p>
+<p>
+  <%= link_to("Delete this task", task_delete_path, method: :delete, data: {confirm: "Are you sure you want to delete this task?"}) %>
 </p>

@@ -3,7 +3,8 @@
   <% @all_the_tasks.each do |task| %>
     <li>
     <%= link_to("#{task.title}", task_path(task[:id])) %>
-    <%= link_to "Edit", task_edit_path(task) %> 
+    <%= link_to "Edit", task_edit_path(task) %>
+    <%= button_to("Mark as complete", task_complete_path(task), method: :patch) %>
   </li>
     <% end %>
 </ul>

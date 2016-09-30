@@ -34,20 +34,25 @@ class TasksController < ApplicationController
     end
   end
 
-  def delete_form
+  def complete
     @task = Task.find(params[:id])
+    @task.mark_complete
+    @task.save
+    puts @task.id
+
+    redirect_to task_path
   end
 
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    
+    @task = Task.find(params[:id]).destroy
+
     redirect_to tasks_path
   end
 
   private
 
   def task_params
+    puts ">>>>> DPR: #{params}"
     params.require(:task).permit(:title, :description, :completed_at)
   end
 end

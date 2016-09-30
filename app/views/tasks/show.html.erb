@@ -1,5 +1,6 @@
 <h1>Task: <%= @task.title %></h1>
 <h2>Description: <%= @task.description %></h2>
+<h2>Complete? <%= completion_status(@task) %></h2>
 <h2>Completed At: <%= @task.completed_at %></h2>
 
 <p>

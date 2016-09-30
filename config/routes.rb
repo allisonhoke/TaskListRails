@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/tasks/:id/edit' => 'tasks#edit', as: 'task_edit'
   patch '/tasks/:id' => 'tasks#update'
 
-  get 'tasks/:id/delete' => 'tasks#delete_form', as: 'task_delete_form'
+  patch 'tasks/:id/complete' => 'tasks#complete', as: 'task_complete'
+
   delete 'tasks/:id' => 'tasks#destroy', as: 'task_delete'
 
 
