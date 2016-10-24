@@ -1,0 +1,5 @@
+user_one:
+  name: "Allison"
+  email: "a@b.com"
+  uid: "1234567"
+  provider: "github"

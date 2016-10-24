@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
-
   def index
-    @all_the_tasks = Task.all
+    @all_the_tasks = @current_user.tasks
   end
 
   def show
-    @task = Task.find(params[:id])
+    @task = Task.find_by(user_id: @current_user.id, id: params[:id])
+    # Task.find(params[:id])
   end
 
   def new
@@ -14,6 +14,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = @current_user.id
     if @task.save
       redirect_to tasks_path
     else
@@ -22,11 +23,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
+    @task = Task.find_by(user_id: @current_user.id, id: params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = Task.find_by(user_id: @current_user.id, id: params[:id])
     if @task.update(task_params)
       redirect_to tasks_path
     else

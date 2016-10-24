@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyString
+sample_task:
+  title: "task"
+  description: "MyString"
   completed_at: 2016-09-28 13:57:25
+  user_id: 1
 
-two:
-  title: MyString
-  description: MyString
-  completed_at: 2016-09-28 13:57:25
+task_two:
+  title: "Dishes"
+  description: "Do them"
+  user_id: 1
